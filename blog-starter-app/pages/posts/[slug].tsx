@@ -43,7 +43,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 date={post.date}
                 author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.content} slug={post.slug} />
             </article>
           </>
         )}

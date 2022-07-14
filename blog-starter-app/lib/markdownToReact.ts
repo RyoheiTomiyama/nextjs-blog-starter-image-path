@@ -5,7 +5,7 @@ import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import PostImage from '../components/post-image'
 
-export default async function markdownToReact(markdown: string) {
+export default async function markdownToReact(markdown: string, slug: string) {
   const result = (await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -13,7 +13,7 @@ export default async function markdownToReact(markdown: string) {
       createElement,
       Fragment,
       components: {
-        img: PostImage
+        img: PostImage(slug)
       }
     })
     .process(markdown)).result

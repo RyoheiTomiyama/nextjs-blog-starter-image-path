@@ -1,17 +1,22 @@
 import Image from 'next/image'
 import React from 'react'
 
-const PostImage: React.FC<JSX.IntrinsicElements['img']> = ({
+type PostImageFunc = (slug: string) => React.FC<JSX.IntrinsicElements['img']>
+
+const PostImage: PostImageFunc = (slug) => ({
   src,
   alt,
   title,
 }) => {
+  const slug = 'hello-world'
+  const imagePath = 'cover2.jpg'
+  const image = require(`../_posts/${slug}/${imagePath}`).default
+  // const image = require('../_posts/' + slug + '/' + src).default
+
   return <Image
-    src={src}
+    src={image}
     alt={alt}
     title={title}
-    height={100}
-    width={100}
   />
 }
 export default PostImage

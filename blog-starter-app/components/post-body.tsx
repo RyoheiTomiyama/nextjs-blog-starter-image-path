@@ -4,13 +4,14 @@ import markdownStyles from './markdown-styles.module.css'
 
 type Props = {
   content: string
+  slug: string
 }
 
-const PostBody = ({ content }: Props) => {
+const PostBody = ({ content, slug }: Props) => {
   const [component, setComponent] = useState(<Fragment />)
   useEffect(() => {
     (async () => {
-      const contentComponent = await markdownToReact(content)
+      const contentComponent = await markdownToReact(content, slug)
       setComponent(contentComponent)
     })()
     return () => {}
