@@ -8,10 +8,7 @@ const PostImage: PostImageFunc = (slug) => ({
   alt,
   title,
 }) => {
-  const slug = 'hello-world'
-  const imagePath = 'cover2.jpg'
-  const image = require(`../_posts/${slug}/${imagePath}`).default
-  // const image = require('../_posts/' + slug + '/' + src).default
+  const image = require('../_posts/' + slug + '/' + src).default
 
   return <Image
     src={image}
